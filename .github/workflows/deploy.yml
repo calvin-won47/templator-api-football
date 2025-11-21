@@ -7,12 +7,22 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 2 * * *'
   workflow_dispatch:
     inputs:
       target_site_path:
         description: "可选：只部署到某一个站点的绝对路径 (例如 /www/wwwroot/example.com)"
         required: false
         type: string
+      target_site_url:
+        description: "可选：该站点的完整 URL (例如 https://example.com)"
+        required: false
+        type: string
+
+concurrency:
+  group: deploy-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   # --- 作业 1: 构建 React/Vite 应用 ---
@@ -55,12 +65,10 @@ jobs:
     # 在这里手动维护您所有站点的“服务器绝对路径”
     strategy:
       matrix:
-        site_path:
-          # 运行 'create_site.py' 后，您需要来这里添加新站点的路径
-          - /www/wwwroot/xmyxyswkj.com
-          - /www/wwwroot/ganyurencai.com
-          # - /www/wwwroot/client-c.com
-          #... 您可以在这里列出100个
+        site:
+          - { path: "/www/wwwroot/xmyxyswkj.com", url: "https://xmyxyswkj.com" }
+          - { path: "/www/wwwroot/ganyurencai.com", url: "https://ganyurencai.com" }
+          # - { path: "/www/wwwroot/client-c.com", url: "https://client-c.com" }
 
     steps:
       - name: Checkout Code (for seeding config.json)
@@ -73,6 +81,19 @@ jobs:
           name: vite-build-dist
           path: ./dist
 
+      - name: Setup Node.js 18 (for sitemap generation)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Generate sitemap.xml and robots.txt for ${{ matrix.site.url }}
+        env:
+          SITE_URL: ${{ matrix.site.url }}
+          STRAPI_API_TOKEN: ${{ secrets.STRAPI_API_TOKEN }}
+        run: |
+          node scripts/generate-sitemap.mjs
+
       - name: Setup SSH agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -83,7 +104,7 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ secrets.BAOTA_SERVER_IP }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to ${{ matrix.site_path }} via rsync
+      - name: Deploy to ${{ matrix.site.path }} via rsync
         run: |
           rsync -rlDz \
             --delete \
@@ -93,11 +114,11 @@ jobs:
             --exclude='.well-known/' \
             --exclude='logs/' \
             --exclude='ssl/' \
-            ./dist/ ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ matrix.site_path }}
+            ./dist/ ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ matrix.site.path }}
 
       - name: Seed config.json if missing (first-time only)
         run: |
-          rsync -avzr --ignore-existing ./public/config.json ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ matrix.site_path }}/
+          rsync -avzr --ignore-existing ./public/config.json ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ matrix.site.path }}/
 
   # --- 作业 3: 仅部署到一个指定站点（手动触发用） ---
   deploy_single:
@@ -114,6 +135,29 @@ jobs:
         with:
           name: vite-build-dist
           path: ./dist
+
+      - name: Setup Node.js 18 (for sitemap generation)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Derive SITE_URL from target_site_path if not provided
+        id: derive_url
+        run: |
+          SITE_DOMAIN=$(basename "${{ inputs.target_site_path }}")
+          if [ -n "${{ inputs.target_site_url }}" ]; then
+            echo "site_url=${{ inputs.target_site_url }}" >> $GITHUB_OUTPUT
+          else
+            echo "site_url=https://${SITE_DOMAIN}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate sitemap.xml and robots.txt for single site
+        env:
+          SITE_URL: ${{ steps.derive_url.outputs.site_url }}
+          STRAPI_API_TOKEN: ${{ secrets.STRAPI_API_TOKEN }}
+        run: |
+          node scripts/generate-sitemap.mjs
 
       - name: Setup SSH agent
         uses: webfactory/ssh-agent@v0.9.0
