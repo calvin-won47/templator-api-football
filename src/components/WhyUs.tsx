@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Rocket, Globe, Code, LifeBuoy } from 'lucide-react';
+import { useConfig } from '../contexts/ConfigContext'
 
 const whyUsData = [
   {
@@ -26,12 +27,13 @@ const whyUsData = [
 ];
 
 const WhyUs: React.FC = () => {
+  const config = useConfig()
   return (
     <section className="bg-api-dark-secondary py-20 sm:py-28">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold text-white">Why us?</h2>
-          <p className="mt-4 text-lg text-gray-400">The best API to develop your application</p>
+          <h2 className="text-4xl font-bold text-white">{config?.extra?.whyUs?.title || 'Why us?'}</h2>
+          <p className="mt-4 text-lg text-gray-400">{config?.extra?.whyUs?.subtitle || 'The best API to develop your application'}</p>
         </div>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {whyUsData.map((item, index) => (

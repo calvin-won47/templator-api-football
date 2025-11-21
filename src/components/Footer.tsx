@@ -1,32 +1,52 @@
 
 import React from 'react';
 import { Twitter, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { useConfig } from '../contexts/ConfigContext'
 
 const Footer: React.FC = () => {
-  const socialLinks = [
-    { icon: <Twitter size={20} />, href: "#" },
-    { icon: <Facebook size={20} />, href: "#" },
-    { icon: <Instagram size={20} />, href: "#" },
-    { icon: <Linkedin size={20} />, href: "#" },
-  ];
+  const config = useConfig()
+  const footerConf = config?.extra?.footer
+  const brandName = footerConf?.brand_name || config?.basic?.app_name || 'API-SPORTS'
+  const socialFromConfig = (footerConf?.social as { icon: string; href: string }[] | undefined) || [
+    { icon: 'Twitter', href: '#' },
+    { icon: 'Facebook', href: '#' },
+    { icon: 'Instagram', href: '#' },
+    { icon: 'Linkedin', href: '#' },
+  ]
+  const iconMap: Record<string, React.ReactNode> = {
+    Twitter: <Twitter size={20} />,
+    Facebook: <Facebook size={20} />,
+    Instagram: <Instagram size={20} />,
+    Linkedin: <Linkedin size={20} />,
+  }
+  const socialLinks = socialFromConfig.map((s) => ({ icon: iconMap[s.icon] || <Twitter size={20} />, href: s.href }))
 
-  const footerLinks = {
-    Products: [
-      { name: "Football API", href: "#" },
-      { name: "Basketball API", href: "#" },
-      { name: "Baseball API", href: "#" },
-      { name: "Hockey API", href: "#" },
-    ],
-    Company: [
-      { name: "About us", href: "#" },
-      { name: "Blog", href: "#" },
-      { name: "Contact us", href: "#" },
-    ],
-    Legal: [
-      { name: "Terms of Service", href: "#" },
-      { name: "Privacy Policy", href: "#" },
-    ],
-  };
+  const footerSections = (footerConf?.sections as { title: string; links: { name: string; href: string }[] }[] | undefined) || [
+    {
+      title: 'Products',
+      links: [
+        { name: 'Football API', href: '#' },
+        { name: 'Basketball API', href: '#' },
+        { name: 'Baseball API', href: '#' },
+        { name: 'Hockey API', href: '#' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { name: 'About us', href: '#' },
+        { name: 'Blog', href: '/blog' },
+        { name: 'Contact us', href: '#' },
+      ],
+    },
+    {
+      title: 'Legal',
+      links: [
+        { name: 'Terms of Service', href: '#' },
+        { name: 'Privacy Policy', href: '#' },
+      ],
+    },
+  ]
 
   return (
     <footer className="bg-api-dark-secondary">
@@ -37,9 +57,9 @@ const Footer: React.FC = () => {
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-api-green">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5v-3.5l-3.5 3.5-1.42-1.42L9.58 13H6v-2h3.58l-3.5-3.5 1.42-1.42L11 9.58V6h2v3.58l3.5-3.5 1.42 1.42L14.42 11H18v2h-3.58l3.5 3.5-1.42 1.42L13 14.42V18h-2v-.5z" fill="currentColor"/>
               </svg>
-              <span className="text-white font-bold text-lg">API-SPORTS</span>
+              <span className="text-white font-bold text-lg">{brandName}</span>
             </a>
-            <p className="text-gray-400 text-sm">The best APIs for sports data.</p>
+            <p className="text-gray-400 text-sm">{footerConf?.tagline || 'The best APIs for sports data.'}</p>
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (
                 <a key={index} href={link.href} className="text-gray-400 hover:text-white">
@@ -49,11 +69,11 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h3 className="font-semibold text-white tracking-wider uppercase">{title}</h3>
+          {footerSections.map((section) => (
+            <div key={section.title}>
+              <h3 className="font-semibold text-white tracking-wider uppercase">{section.title}</h3>
               <ul className="mt-4 space-y-2">
-                {links.map((link) => (
+                {section.links.map((link) => (
                   <li key={link.name}>
                     <a href={link.href} className="text-gray-400 hover:text-white text-sm">{link.name}</a>
                   </li>
@@ -63,7 +83,7 @@ const Footer: React.FC = () => {
           ))}
         </div>
         <div className="mt-16 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} API-SPORTS. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {brandName}. {footerConf?.copyright || 'All rights reserved.'}</p>
         </div>
       </div>
     </footer>

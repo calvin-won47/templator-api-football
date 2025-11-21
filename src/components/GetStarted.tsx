@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useConfig } from '../contexts/ConfigContext'
 
 const steps = [
   { number: 1, title: "Create an account", description: "It's free and takes less than a minute." },
@@ -8,10 +9,13 @@ const steps = [
 ];
 
 const GetStarted: React.FC = () => {
+  const config = useConfig()
+  const title = config?.extra?.getStarted?.title || 'Get started in minutes'
+  const ctaText = config?.extra?.getStarted?.ctaText || 'Get Started'
   return (
     <section className="py-20 sm:py-28">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold text-white">Get started in minutes</h2>
+        <h2 className="text-4xl font-bold text-white">{title}</h2>
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
           {steps.map((step) => (
             <div key={step.number} className="relative">
@@ -34,7 +38,7 @@ const GetStarted: React.FC = () => {
         </div>
         <div className="mt-16">
           <a href="#" className="bg-api-green text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-500 transition-all duration-300 transform hover:scale-105">
-            Get Started
+            {ctaText}
           </a>
         </div>
       </div>

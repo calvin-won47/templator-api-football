@@ -1,16 +1,17 @@
 
 import React from 'react';
-
-const logos = [
-  "Microsoft", "Bet365", "Corriere dello Sport", "Fantacalcio", "Sofascore", "SofaScore"
-];
+import { useConfig } from '../contexts/ConfigContext'
 
 const TrustedBy: React.FC = () => {
+  const config = useConfig()
+  const logos = (config?.extra?.trustedBy?.logos as string[] | undefined) || [
+    'Microsoft', 'Bet365', 'Corriere dello Sport', 'Fantacalcio', 'Sofascore', 'SofaScore'
+  ]
   return (
     <div className="bg-api-dark-secondary py-16 sm:py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-center text-lg font-semibold text-gray-400">
-          Trusted by the biggest companies
+          {config?.extra?.trustedBy?.title || 'Trusted by the biggest companies'}
         </h2>
         <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
           {logos.map((logo, index) => (

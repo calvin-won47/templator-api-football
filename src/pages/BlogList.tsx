@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { fetchBlogPosts, type BlogListItem } from '../lib/strapi'
+import { useConfig } from '../contexts/ConfigContext'
 
 const formatDate = (value: string | null) => {
   if (!value) return ''
@@ -10,6 +11,7 @@ const formatDate = (value: string | null) => {
 }
 
 const BlogList = () => {
+  const config = useConfig()
   const [posts, setPosts] = useState<BlogListItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -21,7 +23,7 @@ const BlogList = () => {
         if (mounted) setPosts(data)
       })
       .catch((e: any) => {
-        if (mounted) setError(e?.message || 'Error loading posts')
+        if (mounted) setError(e?.message || (config?.extra?.texts?.errorLoadingPosts || 'Error loading posts'))
       })
       .finally(() => {
         if (mounted) setLoading(false)
@@ -31,11 +33,12 @@ const BlogList = () => {
     }
   }, [])
 
+  const title = config?.extra?.blogList?.title || 'Blog'
   return (
     <main className="container mx-auto px-4 pt-24 pb-16">
-      <h1 className="text-4xl font-bold mb-6 text-white">Blog</h1>
+      <h1 className="text-4xl font-bold mb-6 text-white">{title}</h1>
 
-      {loading && <p className="text-gray-300">Loading...</p>}
+      {loading && <p className="text-gray-300">{config?.extra?.texts?.loading || 'Loading...'}</p>}
       {!!error && <p className="text-red-500">{error}</p>}
 
       {!loading && !error && (

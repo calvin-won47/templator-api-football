@@ -14,5 +14,114 @@
       "description": "这里是Hero区域的详细描述文本。"
     }
   },
-  "extra": {}
+  "extra": {
+    "header": {
+      "nav": [
+        { "name": "Football API", "href": "#" },
+        { "name": "Sports API", "href": "#" },
+        { "name": "Widgets", "href": "#" },
+        { "name": "Pricing", "href": "#" },
+        { "name": "Blog", "href": "/blog" },
+        { "name": "Contact us", "href": "#" }
+      ],
+      "loginText": "Login",
+      "signupText": "Sign up"
+    },
+    "hero": {
+      "ctaText": "Get Started",
+      "tagline": "Free for personal use & test"
+    },
+    "trustedBy": {
+      "title": "Trusted by the biggest companies",
+      "logos": [
+        "Microsoft",
+        "Bet365",
+        "Corriere dello Sport",
+        "Fantacalcio",
+        "Sofascore",
+        "SofaScore"
+      ]
+    },
+    "features": {
+      "items": [
+        { "icon": "Zap", "title": "Livescore", "description": "Real-time scores & events" },
+        { "icon": "Calendar", "title": "Fixtures", "description": "All matches with pre-match odds" },
+        { "icon": "BarChart2", "title": "Standings", "description": "Leagues & cups rankings" },
+        { "icon": "Shield", "title": "Events", "description": "All match events with players" },
+        { "icon": "Users", "title": "Lineups", "description": "Match lineups with formations" },
+        { "icon": "User", "title": "Players", "description": "Players, seasons, statistics" },
+        { "icon": "Activity", "title": "Statistics", "description": "Team & player statistics" },
+        { "icon": "BarChart2", "title": "Predictions", "description": "Based on a unique algorithm" },
+        { "icon": "Zap", "title": "Odds", "description": "Pre-match & live odds" },
+        { "icon": "Repeat", "title": "Transfers", "description": "Players transfers" },
+        { "icon": "UserCheck", "title": "Coachs", "description": "Coachs with their careers" },
+        { "icon": "ShieldAlert", "title": "Injuries", "description": "Players injuries" }
+      ]
+    },
+    "whyUs": {
+      "title": "Why us?",
+      "subtitle": "The best API to develop your application",
+      "items": [
+        { "icon": "Rocket", "title": "Fastest API", "description": "Our API is hosted on a scalable cloud infrastructure that provides a 99.99% uptime and a very low latency." },
+        { "icon": "Globe", "title": "Largest Coverage", "description": "We cover more than 1000 football competitions. We are constantly adding new leagues and cups." },
+        { "icon": "Code", "title": "Easy integration", "description": "Our documentation is clear and simple. We provide code examples in many languages to help you get started." },
+        { "icon": "LifeBuoy", "title": "Best support", "description": "Our support team is available to help you with any questions you may have. We are here to help you succeed." }
+      ]
+    },
+    "getStarted": {
+      "title": "Get started in minutes",
+      "steps": [
+        { "number": 1, "title": "Create an account", "description": "It's free and takes less than a minute." },
+        { "number": 2, "title": "Get your API key", "description": "Your API key is available on your dashboard." },
+        { "number": 3, "title": "Start to build", "description": "Integrate the API into your application." }
+      ],
+      "ctaText": "Get Started"
+    },
+    "footer": {
+      "brand_name": "API-SPORTS",
+      "tagline": "The best APIs for sports data.",
+      "copyright": "All rights reserved.",
+      "sections": [
+        {
+          "title": "Products",
+          "links": [
+            { "name": "Football API", "href": "#" },
+            { "name": "Basketball API", "href": "#" },
+            { "name": "Baseball API", "href": "#" },
+            { "name": "Hockey API", "href": "#" }
+          ]
+        },
+        {
+          "title": "Company",
+          "links": [
+            { "name": "About us", "href": "#" },
+            { "name": "Blog", "href": "/blog" },
+            { "name": "Contact us", "href": "#" }
+          ]
+        },
+        {
+          "title": "Legal",
+          "links": [
+            { "name": "Terms of Service", "href": "#" },
+            { "name": "Privacy Policy", "href": "#" }
+          ]
+        }
+      ],
+      "social": [
+        { "icon": "Twitter", "href": "#" },
+        { "icon": "Facebook", "href": "#" },
+        { "icon": "Instagram", "href": "#" },
+        { "icon": "Linkedin", "href": "#" }
+      ]
+    },
+    "blogList": {
+      "title": "Blog"
+    },
+    "texts": {
+      "loading": "Loading...",
+      "errorLoadingPosts": "Error loading posts",
+      "errorLoadingBlog": "Error loading blog",
+      "notFound": "Not found"
+    }
+  }
 }
