@@ -1,0 +1,182 @@
+{
+  "basic": {
+    "app_name": "Zenkura",
+    "strapi_url": "https://2amcreations.com",
+    "strapi_site_slug": "zentekx",
+    "gtmId": "GTM-XXXXXX",
+    "seo": {
+      "title": "Zenkura - Mindfulness & Productivity Tools",
+      "description": "Enhance your productivity and mindfulness with Zenkura's innovative tools designed for a balanced and focused life.",
+      "keywords": "mindfulness, productivity, SaaS, tools, Zenkura"
+    },
+    "hero": {
+      "slogan": "Achieve More with Mindful Focus",
+      "description": "Transform your daily routine with Zenkura's suite of mindfulness and productivity tools, crafted to enhance your well-being and efficiency."
+    }
+  },
+  "extra": {
+    "header": {
+      "nav": [
+        {
+          "name": "Home",
+          "href": "/"
+        },
+        {
+          "name": "Features",
+          "href": "/features"
+        },
+        {
+          "name": "Pricing",
+          "href": "/pricing"
+        },
+        {
+          "name": "Blog",
+          "href": "/blog"
+        },
+        {
+          "name": "Contact",
+          "href": "/contact"
+        }
+      ],
+      "loginText": "Log In",
+      "signupText": "Sign Up"
+    },
+    "hero": {
+      "ctaText": "Get Started Today",
+      "tagline": "Your path to a more productive and mindful life starts here."
+    },
+    "trustedBy": {
+      "title": "Trusted by Leading Brands",
+      "logos": [
+        "{'src': '/images/logo1.png', 'alt': 'Brand 1'}",
+        "{'src': '/images/logo2.png', 'alt': 'Brand 2'}",
+        "{'src': '/images/logo3.png', 'alt': 'Brand 3'}"
+      ]
+    },
+    "features": {
+      "items": [
+        {
+          "icon": "focus",
+          "title": "Enhanced Focus",
+          "description": "Tools designed to sharpen your concentration and eliminate distractions."
+        },
+        {
+          "icon": "time-management",
+          "title": "Time Management",
+          "description": "Efficiently manage your time and prioritize tasks effectively."
+        },
+        {
+          "icon": "stress-relief",
+          "title": "Stress Relief",
+          "description": "Incorporate mindfulness practices to reduce stress and improve well-being."
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Why Choose Zenkura?",
+      "subtitle": "Innovative Solutions for a Balanced Life",
+      "items": [
+        {
+          "icon": "customizable",
+          "title": "Customizable Tools",
+          "description": "Tailor our tools to fit your unique lifestyle and goals."
+        },
+        {
+          "icon": "community",
+          "title": "Supportive Community",
+          "description": "Join a community of like-minded individuals on a similar journey."
+        },
+        {
+          "icon": "insights",
+          "title": "Actionable Insights",
+          "description": "Gain insights to continually improve your productivity and mindfulness."
+        }
+      ]
+    },
+    "getStarted": {
+      "title": "Get Started with Zenkura",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Sign Up",
+          "description": "Create your account to access all features."
+        },
+        {
+          "number": 2,
+          "title": "Customize",
+          "description": "Set your preferences and personalize your tools."
+        },
+        {
+          "number": 3,
+          "title": "Achieve",
+          "description": "Start your journey towards enhanced productivity and mindfulness."
+        }
+      ],
+      "ctaText": "Join Now"
+    },
+    "footer": {
+      "brand_name": "Zenkura",
+      "tagline": "Mindfulness & Productivity",
+      "copyright": "© 2023 Zenkura. All rights reserved.",
+      "sections": [
+        {
+          "title": "Company",
+          "links": [
+            {
+              "name": "About Us",
+              "href": "/about"
+            },
+            {
+              "name": "Careers",
+              "href": "/careers"
+            },
+            {
+              "name": "Press",
+              "href": "/press"
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "links": [
+            {
+              "name": "Help Center",
+              "href": "/help"
+            },
+            {
+              "name": "Contact Us",
+              "href": "/contact"
+            },
+            {
+              "name": "Privacy Policy",
+              "href": "/privacy"
+            }
+          ]
+        }
+      ],
+      "social": [
+        {
+          "icon": "facebook",
+          "href": "https://facebook.com/zenkura"
+        },
+        {
+          "icon": "twitter",
+          "href": "https://twitter.com/zenkura"
+        },
+        {
+          "icon": "instagram",
+          "href": "https://instagram.com/zenkura"
+        }
+      ]
+    },
+    "blogList": {
+      "title": "Latest Insights"
+    },
+    "texts": {
+      "loading": "Loading...",
+      "errorLoadingPosts": "Error loading posts. Please try again later.",
+      "errorLoadingBlog": "Error loading blog. Please check back soon.",
+      "notFound": "Page not found. Return to home."
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "basic": {
+    "app_name": "TasteVortex",
+    "strapi_url": "https://2amcreations.com",
+    "strapi_site_slug": "tastyzo",
+    "gtmId": "GTM-XXXXXX",
+    "seo": {
+      "title": "TasteVortex - Unleash Your Culinary Passion",
+      "description": "Discover a world of flavors with TasteVortex. Join our community to explore recipes, share culinary creations, and ignite your passion for cooking.",
+      "keywords": "cooking, recipes, culinary, food, TasteVortex"
+    },
+    "hero": {
+      "slogan": "Unleash Your Culinary Passion",
+      "description": "Join TasteVortex and dive into a universe of flavors. Share recipes, explore new cuisines, and connect with fellow food enthusiasts."
+    }
+  },
+  "extra": {
+    "header": {
+      "nav": [
+        {
+          "name": "Home",
+          "href": "/"
+        },
+        {
+          "name": "Recipes",
+          "href": "/recipes"
+        },
+        {
+          "name": "Community",
+          "href": "/community"
+        },
+        {
+          "name": "About",
+          "href": "/about"
+        },
+        {
+          "name": "Contact",
+          "href": "/contact"
+        }
+      ],
+      "loginText": "Log In",
+      "signupText": "Sign Up"
+    },
+    "hero": {
+      "ctaText": "Get Started",
+      "tagline": "Where Every Meal is an Adventure"
+    },
+    "trustedBy": {
+      "title": "Trusted By Culinary Experts",
+      "logos": [
+        "logo1.png",
+        "logo2.png",
+        "logo3.png"
+      ]
+    },
+    "features": {
+      "items": [
+        {
+          "icon": "icon1.png",
+          "title": "Diverse Recipes",
+          "description": "Explore a vast collection of recipes from around the world."
+        },
+        {
+          "icon": "icon2.png",
+          "title": "Community Driven",
+          "description": "Connect with a passionate community of food lovers."
+        },
+        {
+          "icon": "icon3.png",
+          "title": "Share Your Creations",
+          "description": "Post your own recipes and get feedback from the community."
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Why Choose TasteVortex?",
+      "subtitle": "Your Gateway to Culinary Excellence",
+      "items": [
+        {
+          "icon": "icon4.png",
+          "title": "Expert Tips",
+          "description": "Get insights and tips from culinary experts."
+        },
+        {
+          "icon": "icon5.png",
+          "title": "User-Friendly",
+          "description": "Enjoy a seamless and intuitive user experience."
+        },
+        {
+          "icon": "icon6.png",
+          "title": "Constantly Evolving",
+          "description": "We constantly update our platform with new features and content."
+        }
+      ]
+    },
+    "getStarted": {
+      "title": "Start Your Culinary Journey",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Sign Up",
+          "description": "Create your account and join our community."
+        },
+        {
+          "number": 2,
+          "title": "Explore",
+          "description": "Discover recipes and connect with fellow foodies."
+        },
+        {
+          "number": 3,
+          "title": "Create",
+          "description": "Share your culinary creations with the world."
+        }
+      ],
+      "ctaText": "Join Now"
+    },
+    "footer": {
+      "brand_name": "TasteVortex",
+      "tagline": "Where Every Meal is an Adventure",
+      "copyright": "© 2023 TasteVortex. All Rights Reserved.",
+      "sections": [
+        {
+          "title": "About",
+          "links": [
+            {
+              "name": "Our Story",
+              "href": "/about"
+            },
+            {
+              "name": "Careers",
+              "href": "/careers"
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "links": [
+            {
+              "name": "Help Center",
+              "href": "/help"
+            },
+            {
+              "name": "Contact Us",
+              "href": "/contact"
+            }
+          ]
+        },
+        {
+          "title": "Legal",
+          "links": [
+            {
+              "name": "Privacy Policy",
+              "href": "/privacy"
+            },
+            {
+              "name": "Terms of Service",
+              "href": "/terms"
+            }
+          ]
+        }
+      ],
+      "social": [
+        {
+          "icon": "facebook.png",
+          "href": "https://facebook.com/tastevortex"
+        },
+        {
+          "icon": "twitter.png",
+          "href": "https://twitter.com/tastevortex"
+        },
+        {
+          "icon": "instagram.png",
+          "href": "https://instagram.com/tastevortex"
+        }
+      ]
+    },
+    "blogList": {
+      "title": "From Our Blog"
+    },
+    "texts": {
+      "loading": "Loading...",
+      "errorLoadingPosts": "Error loading posts. Please try again later.",
+      "errorLoadingBlog": "Error loading blog. Please try again later.",
+      "notFound": "Page not found."
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "basic": {
+    "app_name": "Harmonexis",
+    "strapi_url": "https://2amcreations.com",
+    "strapi_site_slug": "dweezly",
+    "gtmId": "GTM-XXXXXX",
+    "seo": {
+      "title": "Harmonexis - Music Collaboration and Networking",
+      "description": "Join Harmonexis to connect, collaborate, and create music with artists worldwide. Elevate your musical journey with seamless networking.",
+      "keywords": "music collaboration, music networking, artist connection, music creation, band networking"
+    },
+    "hero": {
+      "slogan": "Unite Your Sound",
+      "description": "Discover a platform where musicians meet, collaborate, and create. Harmonexis brings artists together to produce world-class music."
+    }
+  },
+  "extra": {
+    "header": {
+      "nav": [
+        {
+          "name": "Home",
+          "href": "/"
+        },
+        {
+          "name": "Features",
+          "href": "/features"
+        },
+        {
+          "name": "Why Us",
+          "href": "/why-us"
+        },
+        {
+          "name": "Blog",
+          "href": "/blog"
+        },
+        {
+          "name": "Contact",
+          "href": "/contact"
+        }
+      ],
+      "loginText": "Log In",
+      "signupText": "Sign Up"
+    },
+    "hero": {
+      "ctaText": "Start Collaborating",
+      "tagline": "Where Music Meets Innovation"
+    },
+    "trustedBy": {
+      "title": "Trusted by Leading Artists",
+      "logos": [
+        "logo1.png",
+        "logo2.png",
+        "logo3.png"
+      ]
+    },
+    "features": {
+      "items": [
+        {
+          "icon": "collaboration-icon.png",
+          "title": "Seamless Collaboration",
+          "description": "Connect with musicians worldwide and collaborate effortlessly."
+        },
+        {
+          "icon": "networking-icon.png",
+          "title": "Global Networking",
+          "description": "Expand your musical network with industry professionals."
+        },
+        {
+          "icon": "tools-icon.png",
+          "title": "Creative Tools",
+          "description": "Access cutting-edge tools for music creation and production."
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Why Choose Harmonexis?",
+      "subtitle": "Empowering Musicians Everywhere",
+      "items": [
+        {
+          "icon": "community-icon.png",
+          "title": "Vibrant Community",
+          "description": "Join a passionate community of music creators and enthusiasts."
+        },
+        {
+          "icon": "support-icon.png",
+          "title": "24/7 Support",
+          "description": "Get round-the-clock support from our dedicated team."
+        },
+        {
+          "icon": "growth-icon.png",
+          "title": "Grow Your Brand",
+          "description": "Leverage our platform to enhance your visibility and grow your brand."
+        }
+      ]
+    },
+    "getStarted": {
+      "title": "Get Started with Harmonexis",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Sign Up",
+          "description": "Create your free account and join our community."
+        },
+        {
+          "number": "2",
+          "title": "Connect",
+          "description": "Find and connect with musicians that match your style."
+        },
+        {
+          "number": "3",
+          "title": "Collaborate",
+          "description": "Start your musical journey with seamless collaboration."
+        }
+      ],
+      "ctaText": "Join Now"
+    },
+    "footer": {
+      "brand_name": "Harmonexis",
+      "tagline": "Unite Your Sound",
+      "copyright": "© 2023 Harmonexis. All rights reserved.",
+      "sections": [
+        {
+          "title": "Company",
+          "links": [
+            {
+              "name": "About Us",
+              "href": "/about"
+            },
+            {
+              "name": "Careers",
+              "href": "/careers"
+            },
+            {
+              "name": "Press",
+              "href": "/press"
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "links": [
+            {
+              "name": "Help Center",
+              "href": "/help"
+            },
+            {
+              "name": "Contact Us",
+              "href": "/contact"
+            },
+            {
+              "name": "Privacy Policy",
+              "href": "/privacy"
+            }
+          ]
+        }
+      ],
+      "social": [
+        {
+          "icon": "facebook-icon.png",
+          "href": "https://facebook.com/harmonexis"
+        },
+        {
+          "icon": "twitter-icon.png",
+          "href": "https://twitter.com/harmonexis"
+        },
+        {
+          "icon": "instagram-icon.png",
+          "href": "https://instagram.com/harmonexis"
+        }
+      ]
+    },
+    "blogList": {
+      "title": "Latest from Our Blog"
+    },
+    "texts": {
+      "loading": "Loading...",
+      "errorLoadingPosts": "Error loading posts. Please try again later.",
+      "errorLoadingBlog": "Error loading blog. Please try again later.",
+      "notFound": "Page not found. Check the URL or return home."
+    }
+  }
+}

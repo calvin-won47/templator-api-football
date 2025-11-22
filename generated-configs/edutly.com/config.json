@@ -1,0 +1,178 @@
+{
+  "basic": {
+    "app_name": "Edutopia",
+    "strapi_url": "https://2amcreations.com",
+    "strapi_site_slug": "edutly",
+    "gtmId": "GTM-XXXXXX",
+    "seo": {
+      "title": "Edutopia: Elevate Your Learning Experience",
+      "description": "Discover innovative learning solutions with Edutopia. Transform education with our cutting-edge tools and resources.",
+      "keywords": "education, learning, online courses, Edutopia, e-learning"
+    },
+    "hero": {
+      "slogan": "Unlock Your Potential",
+      "description": "Join Edutopia today and embark on a journey of endless learning possibilities."
+    }
+  },
+  "extra": {
+    "header": {
+      "nav": [
+        {
+          "name": "Home",
+          "href": "/"
+        },
+        {
+          "name": "Courses",
+          "href": "/courses"
+        },
+        {
+          "name": "About Us",
+          "href": "/about"
+        },
+        {
+          "name": "Contact",
+          "href": "/contact"
+        }
+      ],
+      "loginText": "Log In",
+      "signupText": "Sign Up"
+    },
+    "hero": {
+      "ctaText": "Get Started Now",
+      "tagline": "Empower Your Future with Quality Education"
+    },
+    "trustedBy": {
+      "title": "Trusted by Leading Institutions",
+      "logos": [
+        "logo1.png",
+        "logo2.png",
+        "logo3.png"
+      ]
+    },
+    "features": {
+      "items": [
+        {
+          "icon": "feature1.png",
+          "title": "Interactive Learning",
+          "description": "Engage with dynamic and interactive courses designed for effective learning."
+        },
+        {
+          "icon": "feature2.png",
+          "title": "Expert Instructors",
+          "description": "Learn from industry experts and experienced educators."
+        },
+        {
+          "icon": "feature3.png",
+          "title": "Flexible Schedule",
+          "description": "Access courses at your convenience, anytime and anywhere."
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Why Choose Edutopia?",
+      "subtitle": "Experience the Difference in Education",
+      "items": [
+        {
+          "icon": "whyus1.png",
+          "title": "Comprehensive Curriculum",
+          "description": "Our courses are designed to cover all essential topics thoroughly."
+        },
+        {
+          "icon": "whyus2.png",
+          "title": "Community Support",
+          "description": "Join a community of learners and educators to enhance your experience."
+        },
+        {
+          "icon": "whyus3.png",
+          "title": "Career Advancement",
+          "description": "Boost your career prospects with certifications and advanced skills."
+        }
+      ]
+    },
+    "getStarted": {
+      "title": "How to Get Started",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Sign Up",
+          "description": "Create your free account to begin your learning journey."
+        },
+        {
+          "number": 2,
+          "title": "Choose a Course",
+          "description": "Browse our course catalog and find the perfect match for your interests."
+        },
+        {
+          "number": 3,
+          "title": "Start Learning",
+          "description": "Access your course materials and start learning at your own pace."
+        }
+      ],
+      "ctaText": "Join Edutopia Today"
+    },
+    "footer": {
+      "brand_name": "Edutopia",
+      "tagline": "Where Learning Meets Excellence",
+      "copyright": "© 2023 Edutopia. All rights reserved.",
+      "sections": [
+        {
+          "title": "Company",
+          "links": [
+            {
+              "name": "About Us",
+              "href": "/about"
+            },
+            {
+              "name": "Careers",
+              "href": "/careers"
+            },
+            {
+              "name": "Press",
+              "href": "/press"
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "links": [
+            {
+              "name": "Help Center",
+              "href": "/help"
+            },
+            {
+              "name": "Contact Us",
+              "href": "/contact"
+            },
+            {
+              "name": "Privacy Policy",
+              "href": "/privacy"
+            }
+          ]
+        }
+      ],
+      "social": [
+        {
+          "icon": "facebook.png",
+          "href": "https://facebook.com/edutopia"
+        },
+        {
+          "icon": "twitter.png",
+          "href": "https://twitter.com/edutopia"
+        },
+        {
+          "icon": "linkedin.png",
+          "href": "https://linkedin.com/company/edutopia"
+        }
+      ]
+    },
+    "blogList": {
+      "title": "From Our Blog"
+    },
+    "texts": {
+      "loading": "Loading, please wait...",
+      "errorLoadingPosts": "Error loading posts. Please try again later.",
+      "errorLoadingBlog": "Error loading blog. Please try again later.",
+      "notFound": "Page not found. Please check the URL or return to the homepage."
+    }
+  }
+}

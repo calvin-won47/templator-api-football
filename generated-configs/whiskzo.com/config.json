@@ -1,0 +1,191 @@
+{
+  "basic": {
+    "app_name": "Whiskistry",
+    "strapi_url": "https://2amcreations.com",
+    "strapi_site_slug": "whiskzo",
+    "gtmId": "GTM-XXXXXX",
+    "seo": {
+      "title": "Whiskistry - Elevate Your Cooking Experience",
+      "description": "Discover premium kitchenware and baking supplies at Whiskistry. From high-quality whisks to essential utensils, find everything you need to create culinary masterpieces.",
+      "keywords": "kitchenware, baking supplies, whisks, cooking utensils, Whiskistry"
+    },
+    "hero": {
+      "slogan": "Whisk Your Way to Perfection",
+      "description": "Explore our exclusive collection of kitchen essentials designed to enhance your cooking journey."
+    }
+  },
+  "extra": {
+    "header": {
+      "nav": [
+        {
+          "name": "Home",
+          "href": "/"
+        },
+        {
+          "name": "Shop",
+          "href": "/shop"
+        },
+        {
+          "name": "About Us",
+          "href": "/about"
+        },
+        {
+          "name": "Contact",
+          "href": "/contact"
+        }
+      ],
+      "loginText": "Log In",
+      "signupText": "Sign Up"
+    },
+    "hero": {
+      "ctaText": "Shop Now",
+      "tagline": "Unleash Your Inner Chef"
+    },
+    "trustedBy": {
+      "title": "Trusted by Culinary Experts",
+      "logos": [
+        "/images/logo1.png",
+        "/images/logo2.png",
+        "/images/logo3.png"
+      ]
+    },
+    "features": {
+      "items": [
+        {
+          "icon": "icon-quality",
+          "title": "Premium Quality",
+          "description": "Experience the finest materials and craftsmanship in every product."
+        },
+        {
+          "icon": "icon-variety",
+          "title": "Wide Variety",
+          "description": "Choose from an extensive range of kitchen tools to suit every need."
+        },
+        {
+          "icon": "icon-support",
+          "title": "Exceptional Support",
+          "description": "Our team is here to help you with any questions or concerns."
+        }
+      ]
+    },
+    "whyUs": {
+      "title": "Why Choose Whiskistry?",
+      "subtitle": "Your Trusted Kitchenware Partner",
+      "items": [
+        {
+          "icon": "icon-innovation",
+          "title": "Innovative Designs",
+          "description": "Stay ahead with our cutting-edge kitchen solutions."
+        },
+        {
+          "icon": "icon-satisfaction",
+          "title": "Customer Satisfaction",
+          "description": "We prioritize your happiness with our top-notch services."
+        },
+        {
+          "icon": "icon-value",
+          "title": "Value for Money",
+          "description": "Get the best products at competitive prices."
+        }
+      ]
+    },
+    "getStarted": {
+      "title": "Get Started with Whiskistry",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Browse Our Collection",
+          "description": "Explore our wide range of kitchenware to find your perfect match."
+        },
+        {
+          "number": 2,
+          "title": "Place Your Order",
+          "description": "Enjoy a seamless shopping experience with our user-friendly platform."
+        },
+        {
+          "number": 3,
+          "title": "Whisk Away",
+          "description": "Receive your order and start creating delightful dishes."
+        }
+      ],
+      "ctaText": "Join Us Today"
+    },
+    "footer": {
+      "brand_name": "Whiskistry",
+      "tagline": "Crafting Culinary Excellence",
+      "copyright": "© 2023 Whiskistry. All rights reserved.",
+      "sections": [
+        {
+          "title": "Company",
+          "links": [
+            {
+              "name": "About Us",
+              "href": "/about"
+            },
+            {
+              "name": "Careers",
+              "href": "/careers"
+            },
+            {
+              "name": "Press",
+              "href": "/press"
+            }
+          ]
+        },
+        {
+          "title": "Support",
+          "links": [
+            {
+              "name": "Contact Us",
+              "href": "/contact"
+            },
+            {
+              "name": "FAQs",
+              "href": "/faqs"
+            },
+            {
+              "name": "Shipping & Returns",
+              "href": "/shipping-returns"
+            }
+          ]
+        },
+        {
+          "title": "Legal",
+          "links": [
+            {
+              "name": "Privacy Policy",
+              "href": "/privacy-policy"
+            },
+            {
+              "name": "Terms of Service",
+              "href": "/terms-of-service"
+            }
+          ]
+        }
+      ],
+      "social": [
+        {
+          "icon": "icon-facebook",
+          "href": "https://facebook.com/whiskistry"
+        },
+        {
+          "icon": "icon-twitter",
+          "href": "https://twitter.com/whiskistry"
+        },
+        {
+          "icon": "icon-instagram",
+          "href": "https://instagram.com/whiskistry"
+        }
+      ]
+    },
+    "blogList": {
+      "title": "From Our Blog"
+    },
+    "texts": {
+      "loading": "Loading...",
+      "errorLoadingPosts": "Error loading posts. Please try again.",
+      "errorLoadingBlog": "Error loading blog. Please refresh the page.",
+      "notFound": "Page not found. Return to homepage."
+    }
+  }
+}

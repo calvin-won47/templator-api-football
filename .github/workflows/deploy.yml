@@ -66,8 +66,11 @@ jobs:
     strategy:
       matrix:
         site:
-          - { path: "/www/wwwroot/xmyxyswkj.com", url: "https://xmyxyswkj.com" }
-          - { path: "/www/wwwroot/ganyurencai.com", url: "https://ganyurencai.com" }
+          - { path: /www/wwwroot/whiskzo.com, url: https://whiskzo.com }
+          - { path: /www/wwwroot/tastyzo.com, url: https://tastyzo.com }
+          - { path: /www/wwwroot/dweezly.com, url: https://dweezly.com }
+          - { path: /www/wwwroot/zentekx.com, url: https://zentekx.com }
+          - { path: /www/wwwroot/edutly.com, url: https://edutly.com }
           # - { path: "/www/wwwroot/client-c.com", url: "https://client-c.com" }
 
     steps:
@@ -94,6 +97,19 @@ jobs:
         run: |
           node scripts/generate-sitemap.mjs
 
+      - name: Select config.json for ${{ matrix.site.url }}
+        id: select_config
+        run: |
+          DOMAIN=$(basename "${{ matrix.site.path }}")
+          CONFIG_PATH="generated-configs/${DOMAIN}/config.json"
+          if [ -f "$CONFIG_PATH" ]; then
+            echo "Using site-specific config: $CONFIG_PATH"
+            echo "config_path=$CONFIG_PATH" >> $GITHUB_OUTPUT
+          else
+            echo "Site-specific config not found, falling back to public/config.json"
+            echo "config_path=public/config.json" >> $GITHUB_OUTPUT
+          fi
+
       - name: Setup SSH agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -116,9 +132,9 @@ jobs:
             --exclude='ssl/' \
             ./dist/ ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ matrix.site.path }}
 
-      - name: Seed config.json if missing (first-time only)
+      - name: Deploy site-specific config.json
         run: |
-          rsync -avzr --ignore-existing ./public/config.json ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ matrix.site.path }}/
+          rsync -avzr "${{ steps.select_config.outputs.config_path }}" ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ matrix.site.path }}/
 
   # --- 作业 3: 仅部署到一个指定站点（手动触发用） ---
   deploy_single:
@@ -159,6 +175,19 @@ jobs:
         run: |
           node scripts/generate-sitemap.mjs
 
+      - name: Select config.json for single site
+        id: select_config_single
+        run: |
+          DOMAIN=$(basename "${{ inputs.target_site_path }}")
+          CONFIG_PATH="generated-configs/${DOMAIN}/config.json"
+          if [ -f "$CONFIG_PATH" ]; then
+            echo "Using site-specific config: $CONFIG_PATH"
+            echo "config_path=$CONFIG_PATH" >> $GITHUB_OUTPUT
+          else
+            echo "Site-specific config not found, falling back to public/config.json"
+            echo "config_path=public/config.json" >> $GITHUB_OUTPUT
+          fi
+
       - name: Setup SSH agent
         uses: webfactory/ssh-agent@v0.9.0
         with:
@@ -181,6 +210,6 @@ jobs:
             --exclude='ssl/' \
             ./dist/ ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ inputs.target_site_path }}
 
-      - name: Seed config.json if missing (first-time only)
+      - name: Deploy site-specific config.json (single site)
         run: |
-          rsync -avzr --ignore-existing ./public/config.json ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ inputs.target_site_path }}/
+          rsync -avzr "${{ steps.select_config_single.outputs.config_path }}" ${{ secrets.BAOTA_SSH_USER }}@${{ secrets.BAOTA_SERVER_IP }}:${{ inputs.target_site_path }}/
