@@ -1,7 +1,28 @@
 
-import React from 'react';
-import { Twitter, Facebook, Instagram, Linkedin } from 'lucide-react';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Twitter, Facebook, Instagram, Linkedin } from 'lucide-react'
 import { useConfig } from '../contexts/ConfigContext'
+import type { LinkHTMLAttributes } from 'react'
+
+const isInternalHref = (href: string) => href.startsWith('/')
+
+const FooterLink = (
+  { href, children, ...rest }: LinkHTMLAttributes<HTMLAnchorElement> & { href: string; children: React.ReactNode },
+) => {
+  if (isInternalHref(href)) {
+    return (
+      <Link to={href} className="text-gray-400 hover:text-white text-sm" {...rest}>
+        {children}
+      </Link>
+    )
+  }
+  return (
+    <a href={href} className="text-gray-400 hover:text-white text-sm" {...rest}>
+      {children}
+    </a>
+  )
+}
 
 const Footer: React.FC = () => {
   const config = useConfig()
@@ -53,12 +74,12 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <a href="#" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-api-green">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5v-3.5l-3.5 3.5-1.42-1.42L9.58 13H6v-2h3.58l-3.5-3.5 1.42-1.42L11 9.58V6h2v3.58l3.5-3.5 1.42 1.42L14.42 11H18v2h-3.58l3.5 3.5-1.42 1.42L13 14.42V18h-2v-.5z" fill="currentColor"/>
               </svg>
               <span className="text-white font-bold text-lg">{brandName}</span>
-            </a>
+            </Link>
             <p className="text-gray-400 text-sm">{footerConf?.tagline || 'The best APIs for sports data.'}</p>
             <div className="flex space-x-4">
               {socialLinks.map((link, index) => (
@@ -75,7 +96,7 @@ const Footer: React.FC = () => {
               <ul className="mt-4 space-y-2">
                 {section.links.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="text-gray-400 hover:text-white text-sm">{link.name}</a>
+                    <FooterLink href={link.href}>{link.name}</FooterLink>
                   </li>
                 ))}
               </ul>
