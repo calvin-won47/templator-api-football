@@ -2,9 +2,11 @@ export const API_URL =
   (typeof window !== 'undefined' && (window as any).APP_CONFIG?.basic?.strapi_url) || 'https://2amcreations.com'
 export const SITE_SLUG =
   (typeof window !== 'undefined' && (window as any).APP_CONFIG?.basic?.strapi_site_slug) || 'xmyxyswkj'
+const API_BASE = String(API_URL).replace(/\/$/, '')
 
 export function buildUrl(path: string) {
-  return `${API_URL}${path}`
+  const p = path.startsWith('/') ? path : `/${path}`
+  return `${API_BASE}${p}`
 }
 
 function normalizeImage(media: any): string | null {
@@ -37,8 +39,13 @@ export type BlogDetail = {
 }
 
 export async function fetchBlogPosts(): Promise<BlogListItem[]> {
-  const query = `/api/blog-posts?populate=coverImage&filters[site][slug][$eq]=${SITE_SLUG}&sort=createdAt:desc`
-  const res = await fetch(buildUrl(query))
+  const params = new URLSearchParams()
+  params.set('populate', 'coverImage')
+  params.set('filters[site][slug][$eq]', String(SITE_SLUG))
+  params.set('sort', 'createdAt:desc')
+  const url = buildUrl(`/api/blog-posts?${params.toString()}`)
+  const res = await fetch(url, { headers: { Accept: 'application/json' } })
+  if (res.status === 404) return []
   if (!res.ok) throw new Error('Failed to fetch blog posts')
   const json = await res.json()
   const data = json?.data ?? []
@@ -53,8 +60,13 @@ export async function fetchBlogPosts(): Promise<BlogListItem[]> {
 }
 
 export async function fetchBlogBySlug(slug: string): Promise<BlogDetail | null> {
-  const query = `/api/blog-posts?populate=*&filters[slug][$eq]=${slug}&filters[site][slug][$eq]=${SITE_SLUG}`
-  const res = await fetch(buildUrl(query))
+  const params = new URLSearchParams()
+  params.set('populate', '*')
+  params.set('filters[slug][$eq]', String(slug))
+  params.set('filters[site][slug][$eq]', String(SITE_SLUG))
+  const url = buildUrl(`/api/blog-posts?${params.toString()}`)
+  const res = await fetch(url, { headers: { Accept: 'application/json' } })
+  if (res.status === 404) return null
   if (!res.ok) throw new Error('Failed to fetch blog detail')
   const json = await res.json()
   const item = json?.data?.[0]

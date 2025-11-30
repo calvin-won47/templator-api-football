@@ -50,6 +50,7 @@ const BlogList = () => {
                   src={post.coverImageUrl}
                   alt={post.title ?? 'Cover'}
                   className="w-full h-auto rounded mb-3"
+                  onError={(e) => { e.currentTarget.style.display = 'none' }}
                 />
               )}
               <h2 className="text-xl font-semibold mb-1 text-white">
